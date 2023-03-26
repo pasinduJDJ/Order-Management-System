@@ -1,4 +1,5 @@
 import { Component , OnInit , Input , Output, EventEmitter } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-stackcartitem',
@@ -8,7 +9,10 @@ import { Component , OnInit , Input , Output, EventEmitter } from '@angular/core
 export class StackcartitemComponent implements  OnInit{
   @Input('cartItem') cartItem:any;
   qty:number = 0;
-  @Output('totalAmount') totalAmount:EventEmitter<Object> = new EventEmitter();
+
+  constructor(private cartService:CartService) {
+    
+  }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
   }
@@ -16,7 +20,7 @@ export class StackcartitemComponent implements  OnInit{
 
   incrementQty(){
     this.qty+=1;
-    this.totalAmount.emit({
+    this.cartService.modifyTotal({
       "totalAmount":(this.cartItem.price),
       "isIncrement":true,
     });
@@ -25,7 +29,7 @@ export class StackcartitemComponent implements  OnInit{
   decrementQty(){
     if(this.qty>0){
       this.qty-=1;
-      this.totalAmount.emit({
+      this.cartService.modifyTotal({
         "totalAmount":(this.cartItem.price),
         "isIncrement":false,
       });

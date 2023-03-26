@@ -1,4 +1,5 @@
 import { Component, OnInit , Output, EventEmitter } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-stackcart',
@@ -6,9 +7,21 @@ import { Component, OnInit , Output, EventEmitter } from '@angular/core';
   styleUrls: ['./stackcart.component.css']
 })
 export class StackcartComponent implements OnInit {
+
+  constructor(private cartService:CartService) {
+    
+  }
   cartItems:any = [];
   cartTotal:number = 2830;
+  totalObject:any = {};
+
   ngOnInit(): void {
+    this.cartService.totalAmount.subscribe(e=>{
+      this.totalObject = e;
+      this.loadTotalAmount();
+    });
+
+
     this.cartItems = [
 
   {
@@ -35,10 +48,10 @@ export class StackcartComponent implements OnInit {
     this.isSliderShow.emit(this.showSlider);
   }
 
-  loadTotalAmount(totalObject:any){
-    let isIncrement = totalObject.isIncrement;
-    let totalPrice = totalObject.totalAmount;
-    debugger;
+  loadTotalAmount(){
+  
+    let isIncrement = this.totalObject.isIncrement;
+    let totalPrice = this.totalObject.totalAmount;
     if(isIncrement){
       this.cartTotal += totalPrice;
     }else{
