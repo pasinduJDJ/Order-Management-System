@@ -1,0 +1,39 @@
+<header class="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="assets\images\logo.png" width="40"  alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="main-navigation">
+                    <button class="menu-toggle"><span></span><span></span></button>
+                    <nav class="header-menu">
+                        <ul class="menu food-nav-menu">
+                            <li><a  routerLink="/home">Home</a></li>
+                            <li><a routerLink="/menu" >Menu</a></li>
+                            <li><a routerLink="/cart" >Cart</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-right">
+                        <button type="button"   class="header-btn header-cart bg-transparent border-0"  (click)="sidebarShow = !sidebarShow">
+                            <img src="assets\svg\cart.svg" alt="" width="20" height="20">
+                            <span class="cart-number">3</span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+    <app-stackcart (isSliderShow)="closeSideBar($event)"></app-stackcart>
+</div>
+    
+

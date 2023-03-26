@@ -3,10 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ServicesComponent } from './components/services/services.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ItemcardComponent } from './components/itemcard/itemcard.component';
+import { StackcartComponent } from './components/stackcart/stackcart.component';
+import { StackcartitemComponent } from './components/stackcartitem/stackcartitem.component';
+import { MenuscreenComponent } from './components/menuscreen/menuscreen.component';
+import { CartScreenComponent } from './components/cart-screen/cart-screen.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    ServicesComponent,
+    MenuComponent,
+    FooterComponent,
+    ItemcardComponent,
+    StackcartComponent,
+    StackcartitemComponent,
+    MenuscreenComponent,
+    CartScreenComponent
   ],
   imports: [
     BrowserModule,

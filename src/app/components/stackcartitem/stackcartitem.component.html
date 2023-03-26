@@ -1,0 +1,21 @@
+<div class="box">
+    <div class="cartimg">
+        <img src="assets\images\3.jpg" alt=""  width="50px" height="50px">
+    </div>
+    <div>
+        <div class="text-white">{{cartItem.name}} </div>
+        <div class="text-white">LKR {{cartItem.price}} </div>
+    </div>
+
+    <div class="unit">
+        <button class="cartno bg-transparent border-0 text-white" (click)="decrementQty()">
+            -
+        </button>
+        <span class="cartno text-white mx-2">
+          {{qty}}
+        </span>
+        <button class="cartno bg-transparent border-0 text-white" (click)="incrementQty()">
+            +
+        </button>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.stack-cart-box{
+    width: 350px;
+    height: 100vh;
+    /* border: 1px solid rgb(0, 0, 0); */
+    background-color: rgb(237, 242, 244);
+}
+.stack-header-outer{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+.stack-header-outer p{
+    margin-top: 15px;
+}
+.clear-btn{
+    font-size: 14px;
+    padding: 6px 15px;
+    border-radius: 12px;
+    background-color: white;
+    color: rgb(4, 4, 4);
+    border: none;
+    box-shadow: 1px 1px 1px 1px  rgb(216, 0, 50);
+    transition-duration: 0.4s;
+}
+.clear-btn:hover{
+    background-color: rgb(216, 0, 50); /* Green */
+    color: white; 
+}
+.stack-item-outer{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border-radius:20px 20px 0px 0px;
+}
+.stack-items{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(141, 153, 174);
+    border-radius:20px 20px 0px 0px;
+}
+.stack-price-outer{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border-radius:20px 20px 0px 0px;
+}
+.stack-price{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: rgb(43, 45, 66);
+}
+.stack-price p{
+    padding-top: 15px;
+    color: white;
+}
+.stack-button-outer{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: rgb(43, 45, 66);
+}
+.stack-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+.stack-button button{
+    font-size: 14px;
+    padding: 6px 15px;
+    border-radius: 12px;
+    background-color: rgb(216, 0, 50);
+    color: rgb(255, 255, 255);
+    border: none;
+    transition-duration: 0.4s;
+}
+.stack-button button:hover{
+    background-color: #000000; /* Green */
+    color: white;
+}

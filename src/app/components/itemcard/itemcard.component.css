@@ -1,0 +1,68 @@
+.cardbox{
+    width: 200px;
+    height: 45vh;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(237, 242, 244);
+    /* border: 1px solid rgb(0, 0, 0); */
+    /* box-shadow: 4px 4px rgb(141, 153, 174); */
+}
+.cardimage-outer{
+    width: 100%;
+    height: 58%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border-radius: 20px;
+    background-color: rgb(237, 242, 244);
+    
+}
+.cardimg{
+    width: 80%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 2px 2px rgb(141, 153, 174);
+}
+.card-details-outer{
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.card-details{
+    padding-top: 17px;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.card-details p{
+    font-size: 18;
+}
+.add-card-outer{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+
+}
+.cart-button{
+    font-size: 14px;
+    padding: 6px 15px;
+    border-radius: 12px;
+    background-color: white;
+    color: rgb(216, 0, 50);
+    border: none;
+    box-shadow: 1px 1px 1px 1px  rgb(216, 0, 50);
+    transition-duration: 0.4s;
+}
+.cart-button:hover{
+    background-color: rgb(216, 0, 50); /* Green */
+    color: white;
+}

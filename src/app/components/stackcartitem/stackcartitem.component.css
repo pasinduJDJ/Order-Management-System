@@ -1,0 +1,31 @@
+.box{
+    width: 300px;
+    height: 90px;
+    background-color: rgb(43, 45, 66);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+}
+.cartimg{
+    width: 40px;
+    height: 40px;
+
+    margin-left: 5px;
+}
+.cartimg img{
+    border-radius: 20%;
+}
+
+.unit{
+    background-color: rgb(43, 45, 66);
+    display: inline-flex;
+    align-items: center;
+}
+.cartno{
+    font-size: 15px;
+    color: #ffffff;
+}
+.cartno img{
+    border-radius: 50%;
+}

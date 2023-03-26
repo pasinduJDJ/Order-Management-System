@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="column menu ">
+        <div class="menu-header mx-0">
+            <h2 class="mainText mx-0"> Menu</h2>    
+        </div>
+        <div class="menu-grid">
+            <div *ngFor="let product of products">
+                <app-itemcard [product]="product"></app-itemcard>
+            </div>
+        </div>
+    </div>
+</div>
+
+
