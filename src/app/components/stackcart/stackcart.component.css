@@ -20,8 +20,8 @@
     border-radius: 12px;
     background-color: white;
     color: rgb(4, 4, 4);
-    border: none;
-    box-shadow: 1px 1px 1px 1px  rgb(216, 0, 50);
+    border: #000000;
+    border:1px rgb(216, 0, 50);
     transition-duration: 0.4s;
 }
 .clear-btn:hover{
@@ -53,7 +53,7 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-    border-radius:20px 20px 0px 0px;
+    background-color: rgb(141, 153, 174);
 }
 .stack-price{
     width: 100%;
@@ -62,15 +62,18 @@
     align-items: center;
     justify-content:space-around;
     background-color: rgb(43, 45, 66);
+    border-radius:20px 20px 0px 0px;
 }
 .stack-price p{
     padding-top: 15px;
-    color: white;
+    color: rgb(216, 0, 50);
+    font-size: large;
+    font-weight: 700;
 }
 .stack-button-outer{
     width: 100%;
     height: 10%;
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content:space-around;
     background-color: rgb(43, 45, 66);

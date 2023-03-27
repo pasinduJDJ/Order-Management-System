@@ -13,6 +13,7 @@ import { StackcartComponent } from './components/stackcart/stackcart.component';
 import { StackcartitemComponent } from './components/stackcartitem/stackcartitem.component';
 import { MenuscreenComponent } from './components/menuscreen/menuscreen.component';
 import { CartScreenComponent } from './components/cart-screen/cart-screen.component';
+import { WelcomeviewComponent } from './components/welcomeview/welcomeview.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CartScreenComponent } from './components/cart-screen/cart-screen.compon
     StackcartComponent,
     StackcartitemComponent,
     MenuscreenComponent,
-    CartScreenComponent
+    CartScreenComponent,
+    WelcomeviewComponent
   ],
   imports: [
     BrowserModule,

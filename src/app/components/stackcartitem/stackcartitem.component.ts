@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class StackcartitemComponent implements  OnInit{
   @Input('cartItem') cartItem:any;
-  qty:number = 0;
+  qty:number = 1;
 
   constructor(private cartService:CartService) {
     
