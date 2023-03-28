@@ -20,12 +20,11 @@
     border-radius: 12px;
     background-color: white;
     color: rgb(4, 4, 4);
-    border: #000000;
-    border:1px rgb(216, 0, 50);
+    border:5px rgb(0, 0, 0);
     transition-duration: 0.4s;
 }
 .clear-btn:hover{
-    background-color: rgb(216, 0, 50); /* Green */
+    background-color: rgb(216, 0, 50); 
     color: white; 
 }
 .stack-item-outer{
@@ -95,6 +94,6 @@
     transition-duration: 0.4s;
 }
 .stack-button button:hover{
-    background-color: #000000; /* Green */
+    background-color: #000000; 
     color: white;
 }

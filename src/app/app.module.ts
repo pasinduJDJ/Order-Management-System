@@ -17,6 +17,12 @@ import { OrderComponent } from './components/order/order.component';
 import { ProductComponent } from './components/product/product.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { ProductscreenComponent } from './components/productscreen/productscreen.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { PlaceorderComponent } from './components/placeorder/placeorder.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { OrderscreenComponent } from './components/orderscreen/orderscreen.component';
 
 
 @NgModule({
@@ -35,11 +41,17 @@ import { ProductscreenComponent } from './components/productscreen/productscreen
     OrderComponent,
     ProductComponent,
     AddproductComponent,
-    ProductscreenComponent
+    ProductscreenComponent,
+    PlaceorderComponent,
+    LoginComponent,
+    SignupComponent,
+    OrderscreenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],
