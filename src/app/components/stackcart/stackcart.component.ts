@@ -12,31 +12,18 @@ export class StackcartComponent implements OnInit {
     
   }
   cartItems:any = [];
-  cartTotal:number = 2830;
+  cartTotal:number = 0;
   totalObject:any = {};
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.cartService.totalAmount.subscribe(e=>{
       this.totalObject = e;
       this.loadTotalAmount();
     });
 
-
-    this.cartItems = [
-
-  {
-    id:3,
-    name:"Pazta",
-    price:1850
-  },
-  {
-    id:4,
-    name:"Biriyani",
-    price:980,
-  },
-
-
-    ];
+    await this.cartService.cartItems.subscribe(cartItems=>{
+      this.cartItems = cartItems;
+    })
   }
 
   showSlider:boolean = true;
@@ -49,7 +36,6 @@ export class StackcartComponent implements OnInit {
   }
 
   loadTotalAmount(){
-  
     let isIncrement = this.totalObject.isIncrement;
     let totalPrice = this.totalObject.totalAmount;
     if(isIncrement){

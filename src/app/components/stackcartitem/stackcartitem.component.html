@@ -8,13 +8,13 @@
     </div>
 
     <div class="unit">
-        <button class="cartno bg-transparent border-0 text-white" (click)="decrementQty()">
+        <button class="cartno bg-transparent border-0 text-white" (click)="toggleQty(false)">
             -
         </button>
         <span class="cartno text-white mx-2">
-          {{qty}}
+          {{cartItem.boughtQty}}
         </span>
-        <button class="cartno bg-transparent border-0 text-white" (click)="incrementQty()">
+        <button class="cartno bg-transparent border-0 text-white" (click)="toggleQty(true)">
             +
         </button>
     </div>

@@ -12,22 +12,26 @@ export class MenuComponent implements OnInit {
       {
         id:1,
         name:"Burger",
-        price:850
+        price:850,
+        boughtQty:0,
       },
       {
         id:2,
         name:"Koththu",
         price:100,
+        boughtQty:0,
       },
       {
         id:3,
         name:"Pazta",
-        price:1850
+        price:1850,
+        boughtQty:0,
       },
       {
         id:4,
         name:"Biriyani",
         price:980,
+        boughtQty:0,
       },
     ];
   }
