@@ -12,8 +12,12 @@ import { ItemcardComponent } from './components/itemcard/itemcard.component';
 import { StackcartComponent } from './components/stackcart/stackcart.component';
 import { StackcartitemComponent } from './components/stackcartitem/stackcartitem.component';
 import { MenuscreenComponent } from './components/menuscreen/menuscreen.component';
-import { CartScreenComponent } from './components/cart-screen/cart-screen.component';
 import { WelcomeviewComponent } from './components/welcomeview/welcomeview.component';
+import { OrderComponent } from './components/order/order.component';
+import { ProductComponent } from './components/product/product.component';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { ProductscreenComponent } from './components/productscreen/productscreen.component';
+
 
 @NgModule({
   declarations: [
@@ -27,12 +31,16 @@ import { WelcomeviewComponent } from './components/welcomeview/welcomeview.compo
     StackcartComponent,
     StackcartitemComponent,
     MenuscreenComponent,
-    CartScreenComponent,
-    WelcomeviewComponent
+    WelcomeviewComponent,
+    OrderComponent,
+    ProductComponent,
+    AddproductComponent,
+    ProductscreenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
