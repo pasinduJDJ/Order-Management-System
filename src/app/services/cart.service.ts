@@ -8,12 +8,17 @@ export class CartService {
   constructor() { }
   cartItems:EventEmitter<any[]> = new EventEmitter();
   totalAmount:EventEmitter<Object> = new EventEmitter();
+  totalPrice:number = 0
 
 
    productList:any[] = [];
 
    
 
+
+   setTotalPrice(total:number){
+    this.totalPrice = total;
+   }
   modifyTotal(object:Object){
     this.totalAmount.emit(object);
   }

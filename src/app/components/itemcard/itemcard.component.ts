@@ -15,7 +15,7 @@ export class ItemcardComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    
+    this.product.boughtQty = 0;
   }
   @Input('product') product:any;
 

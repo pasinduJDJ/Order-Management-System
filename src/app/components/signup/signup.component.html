@@ -2,45 +2,45 @@
     <div role="button" class="closebtn" (click)="close()"><img src="assets\svg\close.svg" alt=""  height="30px" width="30px"></div>
     <h1 class="text-center fw-bold pb-2">Sign Up</h1>
 
-    <form class="mx-1 mx-md-4">
+    <form [formGroup]="signUpForm!" class="mx-1 mx-md-4" (submit)="onSignup()">
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="name">Full Name</label>
-                <input type="text" id="name" class="form-control ">
+                <label class="form-label" for="fullName">Full Name</label>
+                <input type="text" id="fullName" formControlName="fullName" class="form-control ">
             </div>
         </div>
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="tp">NIC number</label>
-                <input type="text" id="tp" class="form-control ">
+                <label class="form-label" for="nic">NIC number</label>
+                <input type="text" id="nic" formControlName="nic"  class="form-control ">
             </div>
         </div>
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="address">Contact Number</label>
-                <input type="text" id="address" class="form-control " >
+                <label class="form-label" for="contactNo">Contact Number</label>
+                <input type="text" id="contactNo" formControlName="contactNo" class="form-control" >
             </div>
         </div>
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="products">Email Address</label>
-                <input type="text" id="products" class="form-control " >
+                <label class="form-label" for="userName">User Name</label>
+                <input type="text" id="userName"  formControlName="userName" class="form-control " >
             </div>
         </div>
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="price">Password</label>
-                <input type="number" id="price" class="form-control">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" formControlName="password" class="form-control">
             </div>
         </div>
         <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0 ">
-                <label class="form-label" for="price">Con-Password</label>
-                <input type="number" id="price" class="form-control">
+                <label class="form-label" for="conpwd">Con-Password</label>
+                <input type="password" id="conpwd" formControlName="conpwd" class="form-control">
             </div>
         </div>
         <div class="d-flex justify-content-center mb-3 mb-lg-4 btn-subs">
-            <button type="button" class="btn btn-shape">Sign Up</button>
+            <button type="submit" class="btn btn-shape">Sign Up</button>
         </div>
         <div class="login">
             <p class="fw-light text-decoration-none">Already a member?<a class="fw-light text-decoration-none textlbl"href="">Sign in</a></p>

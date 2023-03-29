@@ -31,7 +31,6 @@ export class ProductService {
       "productCategory": product.productCategory,
     }).subscribe(data=>{
       console.log(data);
-        debugger;
      });
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit , Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { PlaceorderComponent } from '../placeorder/placeorder.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from 'src/app/services/user.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-stackcart',
@@ -10,12 +12,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class StackcartComponent implements OnInit {
 
-  constructor(private cartService:CartService , private ngbModal:NgbModal) {
+  constructor(private cartService:CartService , private ngbModal:NgbModal,private userService:UserService) {
     
   }
   cartItems:any = [];
   cartTotal:number = 0;
   totalObject:any = {};
+  isLoggedIn:boolean = false;
 
   async ngOnInit() {
     this.cartService.totalAmount.subscribe(e=>{
@@ -25,6 +28,10 @@ export class StackcartComponent implements OnInit {
 
     await this.cartService.cartItems.subscribe(cartItems=>{
       this.cartItems = cartItems;
+    })
+
+    await this.userService.isLoggedIn.subscribe(isLoggedIn=>{
+      this.isLoggedIn = isLoggedIn;
     })
   }
 
@@ -48,7 +55,13 @@ export class StackcartComponent implements OnInit {
   }
 
   checkOutOrder(){
-    this.ngbModal.open(PlaceorderComponent)
+    if(this.isLoggedIn){
+      this.cartService.setTotalPrice(this.cartTotal);
+      this.ngbModal.open(PlaceorderComponent);
+    }else{
+      this.ngbModal.open(LoginComponent);
+    }
+    
     
   }
 }
