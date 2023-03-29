@@ -18,11 +18,13 @@ import { ProductComponent } from './components/product/product.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { ProductscreenComponent } from './components/productscreen/productscreen.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { OrderscreenComponent } from './components/orderscreen/orderscreen.component';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeBaseComponent } from './components/home-base/home-base.component';
 
 
 @NgModule({
@@ -45,16 +47,22 @@ import { OrderscreenComponent } from './components/orderscreen/orderscreen.compo
     PlaceorderComponent,
     LoginComponent,
     SignupComponent,
-    OrderscreenComponent
+    OrderscreenComponent,
+    HomeBaseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+    
     
   ],
-  providers: [],
+  providers: [
+    NgbActiveModal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

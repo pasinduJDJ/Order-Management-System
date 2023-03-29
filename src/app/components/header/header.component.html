@@ -13,20 +13,20 @@
                     <button class="menu-toggle"><span></span><span></span></button>
                     <nav class="header-menu">
                         <ul class="menu food-nav-menu">
-                            <li><a  routerLink="/home">Home</a></li>
-                            <li><a routerLink="/menu" >Menu</a></li>
-                            <li><a routerLink="/product" >Product</a></li>
-                            <li><a routerLink="/order" >Order</a></li>
+                            <li><a  routerLink="/app/home">Home</a></li>
+                            <li><a routerLink="/app/menu" >Menu</a></li>
+                            <li><a routerLink="/app/product" >Product</a></li>
+                            <li><a routerLink="/app/order" >Order</a></li>
                         </ul>
                     </nav>
                     <div class="header-right">
                         <button type="button"   class="header-btn header-cart bg-transparent border-0"  (click)="sidebarShow = !sidebarShow">
                             <img src="assets\svg\cart.svg" alt="" width="20" height="20">
-                            <span class="cart-number">3</span>
+                            <span class="cart-number">{{cartItemCount}}</span>
                         </button>
                     </div>
                     <div class="header-right">
-                        <button type="button"   class="header-btn-profile header-cart bg-transparent border-0 "  (click)="sidebarShow = !sidebarShow">
+                        <button type="button"   class="header-btn-profile header-cart bg-transparent border-0 "  (click)="openLogin()">
                             <img src="assets\svg\user.svg" alt="" width="40" height="40">
                         </button>
                     </div>

@@ -6,34 +6,22 @@
 				<th>Name</th>
 				<th>Contact No</th> 
 				<th>Address</th>
-                <th>Product</th>
-                <th>Price</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+				<th>Qty</th>
+				<th>Total Price</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Pasindu Dulanjana</td>
-				<td>0767066455</td>
-				<td>colombo</td>
-				<td>Kottu:1,Burger:2</td>
-				<td>2400</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>Saman Hasira</td>
-				<td>0745066455</td>
-				<td>Dehiwela</td>
-				<td>Burger:1,Pizza:3</td>
-				<td>5500</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>Lakmal Sada</td>
-				<td>0757055678</td>
-				<td>Galle</td>
-				<td>Biriyani</td>
-				<td>700</td>
+			<tr *ngFor="let order of orders">
+				<td>{{order.orderNo}}</td>
+				<td>{{order.customerName}}</td>
+				<td>{{order.customerContactNo}}</td>
+				<td>{{order.customerAddress}}</td>
+				<td>{{order.productName}}</td>
+				<td>{{order.productPrice}}</td>
+				<td>{{order.quantity}}</td>
+				<td>{{order.totalPrice}}</td>
 			</tr>
 		</tbody>
 	</table>

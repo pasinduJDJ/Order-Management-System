@@ -7,6 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./itemcard.component.css']
 })
 export class ItemcardComponent implements OnInit  {
+[x: string]: any;
 
 
   constructor(private cartService:CartService) {

@@ -23,7 +23,7 @@ export class CartService {
           this.toggleQty(product.id , true);
       }else{
         this.modifyTotal({
-          "totalAmount":product.price,
+          "totalAmount":product.productPrice,
           "isIncrement":true,
         });
         product.boughtQty+=1;
@@ -49,7 +49,7 @@ export class CartService {
       }
   
       this.modifyTotal({
-        "totalAmount":productItem.price,
+        "totalAmount":productItem.productPrice,
         "isIncrement":isIncrement,
       });
       this.productList[index] = productItem; 

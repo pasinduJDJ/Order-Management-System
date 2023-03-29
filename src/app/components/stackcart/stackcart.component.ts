@@ -1,5 +1,7 @@
 import { Component, OnInit , Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { PlaceorderComponent } from '../placeorder/placeorder.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-stackcart',
@@ -8,7 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class StackcartComponent implements OnInit {
 
-  constructor(private cartService:CartService) {
+  constructor(private cartService:CartService , private ngbModal:NgbModal) {
     
   }
   cartItems:any = [];
@@ -43,5 +45,10 @@ export class StackcartComponent implements OnInit {
     }else{
       this.cartTotal -= totalPrice;
     }
+  }
+
+  checkOutOrder(){
+    this.ngbModal.open(PlaceorderComponent)
+    
   }
 }
