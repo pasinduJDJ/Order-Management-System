@@ -12,6 +12,8 @@ export class ProductService {
 
   productList:Product[] =[];
   products:EventEmitter<Product[]>=new EventEmitter();
+  selectedProduct:EventEmitter<Product> = new EventEmitter();
+  refreshTable:EventEmitter<boolean> = new EventEmitter();
 
   async getProducts():Promise<Observable<Product[]>>{
      this.httpClient.get<Product[]>('http://localhost:8080/products').subscribe(data=>{
@@ -21,6 +23,12 @@ export class ProductService {
     return this.products;
   }
 
+  setSelectedProduct(selectedProduct:Product){
+    this.selectedProduct.emit(selectedProduct);
+  }
+
+
+
   async addProduct(product:Product){
     debugger;
     this.httpClient.post('http://localhost:8080/products',{
@@ -29,16 +37,24 @@ export class ProductService {
       "productDetails": product.productDetails,
       "productImageURL": product.productImageURL,
       }).subscribe(data=>{
-        debugger;
-        console.log(data);
+       this.refreshTable.emit(true);
       });
   }
 
   url:string="http://localhost:8080/products";
-  deleteProduct(id:number){
+  async deleteProduct(id:number){
     const url=this.url+"/"+id;
-    return this.httpClient.delete<Product>(url).subscribe(data=>{console.log(data);});
+    return await this.httpClient.delete<Product>(url).subscribe(data=>{console.log(data);});
   }
 
+
+  async updateProduct(product:any){
+  
+     return  await this.httpClient.put<Product>(this.url,product).subscribe(data=>{
+      this.selectedProduct.emit(undefined);
+      this.refreshTable.emit(true);
+    });
+
+  }
   
 }

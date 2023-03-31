@@ -22,10 +22,6 @@ export class OrderComponent {
     })
   }
 
-  submitOrderForm(){
-   
-  }
-
 
   async deleteOrder(order:Order){
     debugger;

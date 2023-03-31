@@ -29,6 +29,9 @@ export class StackcartComponent implements OnInit {
     await this.cartService.cartItems.subscribe(cartItems=>{
       this.cartItems = cartItems;
     })
+    await this.cartService.cartTotal.subscribe(cartTotal=>{
+      this.cartTotal = cartTotal;
+    })
 
     await this.userService.isLoggedIn.subscribe(isLoggedIn=>{
       this.isLoggedIn = isLoggedIn;
@@ -49,19 +52,25 @@ export class StackcartComponent implements OnInit {
     let totalPrice = this.totalObject.totalAmount;
     if(isIncrement){
       this.cartTotal += totalPrice;
+      this.cartService.setTotalPrice(this.cartTotal);
     }else{
       this.cartTotal -= totalPrice;
+      this.cartService.setTotalPrice(this.cartTotal);
     }
   }
 
   checkOutOrder(){
     if(this.isLoggedIn){
       this.cartService.setTotalPrice(this.cartTotal);
-      this.ngbModal.open(PlaceorderComponent);
+      const modelRef = this.ngbModal.open(PlaceorderComponent);
+      modelRef.componentInstance.cartItems = this.cartItems;
     }else{
       this.ngbModal.open(LoginComponent);
-    }
-    
-    
+    } 
+  }
+
+  clearCart(){
+    this.cartService.clear();
+    this.cartItems = [];
   }
 }

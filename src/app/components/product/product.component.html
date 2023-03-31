@@ -7,6 +7,7 @@
 				<th> Price</th>
                 <th> Description </th>
                 <th>Update</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -15,6 +16,7 @@
 				<td>{{product.productName}}</td>
 				<td>{{product.productPrice}} </td>
 				<td>{{product.productDetails}}</td>
+				<td><button type="submit" class="btn btn-warning" (click)="updateProduct(product)">Update</button></td>
 				<td><button type="submit" class="btn btn-danger" (click)="deleteProduct(product)">Delete</button></td>
                 
 			</tr>

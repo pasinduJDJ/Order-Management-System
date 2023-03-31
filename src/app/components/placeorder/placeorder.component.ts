@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,40 +13,34 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PlaceorderComponent implements OnInit {
   placeOrderForm: FormGroup = new FormGroup({});
-  cartProducts?: Product[];
+  @Input('cartItems') cartItems?: any[];
   constructor(
     private activeModal: NgbActiveModal,
     private modal: NgbModal,
-    private userService: UserService,
+    private orderService:OrderService,
     private cartService: CartService,
     private fb: FormBuilder
   ) { }
-  ngOnInit(): void {
+  async ngOnInit() {
     this.placeOrderForm = this.fb.group({
       customerName: new FormControl('', [Validators.required]),
       customerAddress: new FormControl('', [Validators.required]),
-      customerContactNo: new FormControl('', [Validators.required,Validators.minLength(9),Validators.maxLength(11)]),
+      customerContactNo: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]),
       productName: new FormControl('', [Validators.required]),
       totalPrice: new FormControl('', [Validators.required]),
     });
 
-    this.cartService.cartItems.subscribe(data => {
-      debugger;
-      let productString = "";
-      data.forEach(e => {
-        productString += e.productName + " - " + e.boughtQuantity
-      })
-      this.placeOrderForm.controls['productName'].setValue(productString);
-    });
+
 
     let user = JSON.parse(localStorage.getItem('user')!.toString());
     this.placeOrderForm.controls['customerName'].setValue(user.fullName);
     this.placeOrderForm.controls['customerContactNo'].setValue(user.contactNo);
     this.placeOrderForm.controls['totalPrice'].setValue(this.cartService.totalPrice);
-   
+    this.setProductString();
+
+
 
     console.log(this.placeOrderForm.getRawValue());
-    debugger;
 
   }
 
@@ -54,17 +49,25 @@ export class PlaceorderComponent implements OnInit {
     this.activeModal.close();
   }
 
- 
+  setProductString(): void {
+    let productString = "";
+    this.cartItems!.forEach(e => {
+      productString += e.productName + " - " + e.boughtQty+"\n";
+    })
+    this.placeOrderForm.controls['productName'].setValue(productString);
+  }
+
+
 
   async placeOrder() {
     debugger;
-    if(this.placeOrderForm?.invalid){
+    if (this.placeOrderForm?.invalid) {
       alert("Form is invalid")
-    }else{
+    } else {
       debugger;
-      await this.userService.addUser(this.placeOrderForm?.getRawValue()).then(result=>{
+      await this.orderService.addOrder(this.placeOrderForm?.getRawValue()).then(result => {
         this.placeOrderForm?.reset();
-        debugger;
+        this.cartService.clear();
       })
     }
   }

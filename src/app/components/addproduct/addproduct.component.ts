@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,28 +10,45 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AddproductComponent {
   addProductForm?:FormGroup<any>;
-  
+  selectedProduct?:Product;
   constructor(private productService:ProductService, private  fb:FormBuilder) {}
 
   ngOnInit(): void {
     this.addProductForm = this.fb.group({
-      productname:new FormControl('',[Validators.required]),
-      productprice:new FormControl('',Validators.required),
-      productimage:new FormControl(),
-      productdetails:new FormControl('',Validators.required),
+      id:new FormControl(''),
+      productName:new FormControl('',[Validators.required]),
+      productPrice:new FormControl('',Validators.required),
+      productImageURL:new FormControl(''),
+      productDetails:new FormControl('',Validators.required),
     });
+    this.productService.selectedProduct.subscribe(product => {
+      this.selectedProduct = product;
+      this.addProductForm!.controls['id'].setValue(product.id);
+      this.addProductForm!.controls['productName'].setValue(product.productName);
+      this.addProductForm!.controls['productPrice'].setValue(product.productPrice);
+      this.addProductForm!.controls['productImageURL'].setValue(product.productImageURL);
+      this.addProductForm!.controls['productDetails'].setValue(product.productDetails);
+    })
   }
 
   async addProduct(){
-    debugger;
-    if(this.addProductForm?.invalid){
-      alert("Please Check Form Again")
-    }else{
-      debugger;
-      await this.productService.addProduct(this.addProductForm?.getRawValue()).then(result=>{
-        this.addProductForm?.reset();
-      })
-    }
+   
+      if(this.addProductForm?.invalid){
+        alert("Please Check Form Again")
+      }else{
+        if(this.selectedProduct == null || this.selectedProduct == undefined){
+          await this.productService.addProduct(this.addProductForm?.getRawValue()).then(result=>{
+            this.addProductForm?.reset();
+          });
+        }else{
+          await this.productService.updateProduct(this.addProductForm!.getRawValue()).then(result=>{
+            this.addProductForm?.reset();
+          });
+        }
+       
+      }
+    
+    
   }
 
   

@@ -12,6 +12,11 @@ export class ProductComponent implements OnInit {
   products:Product[] = [];
   async ngOnInit() {
     await this.loadProducts(); 
+    this.productService.refreshTable.subscribe(refresh=>{
+      if(refresh){
+        this.loadProducts();
+      }
+    })
   }
 
   constructor(private productService:ProductService) {
@@ -29,7 +34,13 @@ export class ProductComponent implements OnInit {
 
   async deleteProduct(product:Product){
     debugger;
-     await this.productService.deleteProduct(product.id)
+     await this.productService.deleteProduct(product.id).then(data=>{
+         this.loadProducts(); 
+     },)
+  }
+
+  updateProduct(product:Product){
+    this.productService.setSelectedProduct(product);
   }
 
 }
