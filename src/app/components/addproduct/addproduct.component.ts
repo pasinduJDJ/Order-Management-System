@@ -32,5 +32,10 @@ export class AddproductComponent {
       })
     }
   }
+
+  
 }
+
+
+
 
