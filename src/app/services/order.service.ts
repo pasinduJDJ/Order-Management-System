@@ -37,7 +37,9 @@ export class OrderService {
      });
   }
 
-  delteOrder(){
-   
+  url:string="http://localhost:8081/orders";
+  deleteOrder(id:number){
+    const url=this.url+"/"+id;
+    return this.httpClient.delete<Order>(url).subscribe(data=>{console.log(data);});
   }
 }

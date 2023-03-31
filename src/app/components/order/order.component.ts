@@ -27,7 +27,8 @@ export class OrderComponent {
   }
 
 
-  deleteOrder(){
-
+  async deleteOrder(order:Order){
+    debugger;
+     await this.orderService.deleteOrder(order.orderNo)
   }
 }

@@ -19,7 +19,7 @@
 				<td>{{order.customerAddress}}</td>
 				<td>{{order.productName}}</td>
 				<td>{{order.totalPrice}}</td>
-				<td><button type="submit" class="btn btn-danger" onclick="deleteOrder()">Delete</button></td>
+				<td><button type="submit" class="btn btn-danger" (click)="deleteOrder(order)">Delete</button></td>
 			</tr>
 		</tbody>
 	</table>
