@@ -27,9 +27,9 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  deleteProduct(product:Product){
+  async deleteProduct(product:Product){
     debugger;
-    this.productService.deleteProduct(product.id)
+     await this.productService.deleteProduct(product.id)
   }
 
 }

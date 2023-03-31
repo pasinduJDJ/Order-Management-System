@@ -38,9 +38,7 @@ export class ProductService {
   deleteProduct(id:number){
     debugger;
     const url=`${this.url}/${id}}`;
-    return this.httpClient.delete<Product>( url).subscribe(data=>{console.log(data);});
-    debugger;
-    // return this.httpClient.delete(this.API + "/products?id=" +id );
+    return this.httpClient.delete<Product>(url).subscribe(data=>{console.log(data);});
   }
 
   
