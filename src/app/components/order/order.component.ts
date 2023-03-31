@@ -10,16 +10,10 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent {
   orders:Order[] = [];
   async ngOnInit() {
-    await this.loadOrders();
-    
-    
+    await this.loadOrders(); 
   }
 
-  constructor(private orderService:OrderService) {
-    
-  }
-
-
+  constructor(private orderService:OrderService) {}
    async loadOrders(){
      this.orderService.getOrders().then(orders=>{
       orders.subscribe(orders=>{
@@ -30,5 +24,10 @@ export class OrderComponent {
 
   submitOrderForm(){
    
+  }
+
+
+  deleteOrder(){
+
   }
 }

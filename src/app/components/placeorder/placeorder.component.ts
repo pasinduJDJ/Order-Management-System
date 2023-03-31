@@ -24,7 +24,7 @@ export class PlaceorderComponent implements OnInit {
     this.placeOrderForm = this.fb.group({
       customerName: new FormControl('', [Validators.required]),
       customerAddress: new FormControl('', [Validators.required]),
-      customerContactNo: new FormControl('', [Validators.required]),
+      customerContactNo: new FormControl('', [Validators.required,Validators.minLength(9),Validators.maxLength(11)]),
       productName: new FormControl('', [Validators.required]),
       totalPrice: new FormControl('', [Validators.required]),
     });
@@ -56,7 +56,16 @@ export class PlaceorderComponent implements OnInit {
 
  
 
-  placeOrder() {
-
+  async placeOrder() {
+    debugger;
+    if(this.placeOrderForm?.invalid){
+      alert("Form is invalid")
+    }else{
+      debugger;
+      await this.userService.addUser(this.placeOrderForm?.getRawValue()).then(result=>{
+        this.placeOrderForm?.reset();
+        debugger;
+      })
+    }
   }
 }

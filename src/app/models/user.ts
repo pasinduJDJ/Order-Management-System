@@ -3,6 +3,7 @@ export interface User {
     fullName:string;
     nic:string;
     contactNo:number;
+    email:string;
     userName:string;
     password:string;
 }

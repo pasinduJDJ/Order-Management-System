@@ -22,15 +22,17 @@ export class ProductService {
   }
 
   async addProduct(product:Product){
+    debugger;
     this.httpClient.post('http://localhost:8080/products',{
       "productName": product.productName,
       "productPrice": product.productPrice,
       "productDetails": product.productDetails,
       "productImageURL": product.productImageURL,
-      "productStatus": product.productStatus,
-      "productCategory": product.productCategory,
-    }).subscribe(data=>{
-      console.log(data);
-     });
+      }).subscribe(data=>{
+        debugger;
+        console.log(data);
+      });
   }
+
+  
 }

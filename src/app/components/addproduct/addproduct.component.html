@@ -1,16 +1,16 @@
 <div class="form-outer">
     <div class="form">
-        <form  >
+        <form [formGroup]="addProductForm!" (submit)="addProduct()" >
             <h6>Add New Product</h6>
-            <div class="textfi">Product name</div>
-            <input type="text" class="box">
-            <div class="textfi">Product price</div>
-            <input type="number" class="box">
-            <div class="textfi">Product image</div>
-            <input type="file" class="box" >
-            <div class="textfi">Product Description</div>
-            <input type="text" class="box">
-            <button class="btn" >Submit</button>
+            <div class="textfi" for="productname">Product name</div>
+            <input type="text" class="box"  id="productname" formControlName="productname">
+            <div class="textfi" for="productprice">Product price</div>
+            <input type="number" class="box"  id="productprice" formControlName="productprice">
+            <div class="textfi" for="productimage">Product image</div>
+            <input type="file" class="box"   id="productimage" formControlName="productimage">
+            <div class="textfi" for="productdetails">Product Description</div>
+            <input type="text" class="box"  id="productdetails" formControlName="productdetails">
+            <button class="btn" type="submit" >Submit</button>
         </form>
     </div>
 </div>

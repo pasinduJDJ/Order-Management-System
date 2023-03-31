@@ -7,9 +7,8 @@
 				<th>Contact No</th> 
 				<th>Address</th>
                 <th>Product Name</th>
-                <th>Product Price</th>
-				<th>Qty</th>
 				<th>Total Price</th>
+				<th>Update</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,9 +18,8 @@
 				<td>{{order.customerContactNo}}</td>
 				<td>{{order.customerAddress}}</td>
 				<td>{{order.productName}}</td>
-				<td>{{order.productPrice}}</td>
-				<td>{{order.quantity}}</td>
 				<td>{{order.totalPrice}}</td>
+				<td><button type="submit" class="btn btn-danger" onclick="deleteOrder()">Delete</button></td>
 			</tr>
 		</tbody>
 	</table>

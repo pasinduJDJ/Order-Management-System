@@ -11,9 +11,7 @@ export class ProductComponent implements OnInit {
 
   products:Product[] = [];
   async ngOnInit() {
-    await this.loadProducts();
-    
-    
+    await this.loadProducts(); 
   }
 
   constructor(private productService:ProductService) {
@@ -21,7 +19,7 @@ export class ProductComponent implements OnInit {
   }
 
 
-   async loadProducts(){
+  async loadProducts(){
      this.productService.getProducts().then(products=>{
       products.subscribe(products=>{
         this.products = products;
@@ -29,8 +27,8 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  submitOrderForm(){
-   
+  deleteProduct(){
+
   }
 
 }

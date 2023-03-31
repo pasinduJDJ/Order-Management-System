@@ -4,7 +4,5 @@ export interface Order {
     customerAddress:string,
     customerContactNo:number,
     productName:string,
-    productPrice:number,
-    quantity:number,
     totalPrice:number,
 }

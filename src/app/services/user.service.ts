@@ -7,6 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
+  [x: string]: any;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,6 +30,7 @@ export class UserService {
       "fullName": user.fullName,
       "nic": user.nic,
       "contactNo": user.contactNo,
+      "email": user.email,
       "userName": user.userName,
       "password": user.password,
     }).subscribe(data => {

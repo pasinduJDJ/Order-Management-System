@@ -22,18 +22,22 @@ export class OrderService {
   }
 
   async addOrder(order:Order){
+    debugger;
     this.httpClient.post('http://localhost:8081/orders',{
       "orderNo":order.orderNo,
       "customerName":order.customerName,
       "customerAddress":order.customerAddress,
       "customerContactNo":order.customerContactNo,
       "productName":order.productName,
-      "productPrice":order.productPrice,
-      "quantity":order.quantity,
       "totalPrice":order.totalPrice
 
     }).subscribe(data=>{
       console.log(data);
+      debugger;
      });
+  }
+
+  delteOrder(){
+   
   }
 }
