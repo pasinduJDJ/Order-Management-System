@@ -33,7 +33,6 @@ export class ProductComponent implements OnInit {
   }
 
   async deleteProduct(product:Product){
-    debugger;
      await this.productService.deleteProduct(product.id).then(data=>{
          this.loadProducts(); 
      },)

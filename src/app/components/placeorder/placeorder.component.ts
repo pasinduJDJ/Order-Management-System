@@ -60,11 +60,9 @@ export class PlaceorderComponent implements OnInit {
 
 
   async placeOrder() {
-    debugger;
     if (this.placeOrderForm?.invalid) {
       alert("Form is invalid")
     } else {
-      debugger;
       await this.orderService.addOrder(this.placeOrderForm?.getRawValue()).then(result => {
         this.placeOrderForm?.reset();
         this.cartService.clear();

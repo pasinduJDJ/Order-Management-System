@@ -36,7 +36,6 @@ export class SignupComponent implements OnInit {
       alert("Username should not called admin")
     }else{
       if(this.MatchPassword("password","conpwd")){
-        debugger;
         await this.userService.addUser(this.signUpForm?.getRawValue()).then(result=>{
           this.signUpForm?.reset();
         })

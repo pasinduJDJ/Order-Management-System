@@ -21,10 +21,12 @@ export class OrderComponent {
       })
     })
   }
+  
 
 
-  async deleteOrder(order:Order){
-    debugger;
-     await this.orderService.deleteOrder(order.orderNo)
+  async deleteOrder(order:any){
+     await this.orderService.deleteOrder(order.orderNo).then(data=>{
+      this.loadOrders(); 
+  },)
   }
 }

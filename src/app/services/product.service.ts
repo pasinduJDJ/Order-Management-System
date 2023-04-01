@@ -30,7 +30,6 @@ export class ProductService {
 
 
   async addProduct(product:Product){
-    debugger;
     this.httpClient.post('http://localhost:8080/products',{
       "productName": product.productName,
       "productPrice": product.productPrice,

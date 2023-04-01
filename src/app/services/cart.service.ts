@@ -24,7 +24,6 @@ export class CartService {
 
   async getCartItems(){
     let items: any[] = [];
-    debugger;
     await this.cartItems.subscribe(cartItems=>{
       
             items= cartItems;

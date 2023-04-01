@@ -16,7 +16,13 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild('sideCard') sideCard?:ElementRef;
 
-  constructor(private router:Router , private ngbModal:NgbModal,private cartService:CartService,private userService:UserService){}
+  constructor(
+    private router:Router , 
+    private ngbModal:NgbModal,
+    private cartService:CartService,
+    private userService:UserService
+  ){}
+
   public sidebarShow: boolean = false;
   cartItemCount:number = 0;
   isAdmin:boolean = false;
@@ -42,6 +48,7 @@ export class HeaderComponent implements OnInit {
   openLogin(){
       this.ngbModal.open(LoginComponent)
   }
+
   logOut(){
     this.userService.logOut();
     this.router.navigate(['/app/home']);

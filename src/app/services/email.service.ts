@@ -12,13 +12,11 @@ export class EmailService {
   constructor(private httpClient: HttpClient) { }
 
   async addEmail(user: User) {
-    debugger;
     this.httpClient.post('http://localhost:8085/emails', {
       "recipient":user.email,
       "msgBody": "Thanks for Choosing",
       "subject":"Succesfully Registered"
     }).subscribe(data => {
-      debugger;
       console.log(data);
     });
   }

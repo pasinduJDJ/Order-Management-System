@@ -22,7 +22,6 @@ export class OrderService {
   }
 
   async addOrder(order:Order){
-    debugger;
     this.httpClient.post('http://localhost:8081/orders',{
       "orderNo":order.orderNo,
       "customerName":order.customerName,
@@ -33,12 +32,11 @@ export class OrderService {
 
     }).subscribe(data=>{
       console.log(data);
-      debugger;
      });
   }
 
   url:string="http://localhost:8081/orders";
-  deleteOrder(id:number){
+  async deleteOrder(id:number){
     const url=this.url+"/"+id;
     return this.httpClient.delete<Order>(url).subscribe(data=>{console.log(data);});
   }
