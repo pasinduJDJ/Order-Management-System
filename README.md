@@ -7,8 +7,8 @@ This is Products and Orders Management Web Application. Customers can add produc
 
 - Customer can view Products and place order 
 - Customer can manage Account
-- Admin can manage Product (add, update, delete, view)
-- Admin can manage Orders (add, update, delete, view)
+- Restaurant user can manage Product (add, update, delete, view)
+- Restaurant user can manage Orders (add, update, delete, view)
 
 ## Development server
 
