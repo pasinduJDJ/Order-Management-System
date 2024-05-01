@@ -1,4 +1,4 @@
-# Course Finding Web App 
+# Resturant Order Management Web App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
 This is Products and Orders Management Web Application. Customers can add products to carts and place orders. Restaurants can mange Orders and Products.
